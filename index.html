@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>சஷ்டியப்த பூர்த்தி வாழ்த்து மடல்</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans Tamil', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .card-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .card-header::before {
+            content: '🎉';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 30px;
+            animation: bounce 2s infinite;
+        }
+        
+        .card-header::after {
+            content: '🎊';
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            animation: bounce 2s infinite 0.5s;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .card-header h1 {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 5px;
+        }
+        
+        .card-header .subtitle {
+            color: rgba(255,255,255,0.95);
+            font-size: 16px;
+            font-weight: 400;
+        }
+        
+        .photo-section {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .photo-frame {
+            display: inline-block;
+            padding: 15px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #f093fb, #f5576c, #ffd89b, #19547b);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(10px);
+        }
+        
+        .photo-frame img {
+            max-width: 500px;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+        }
+        
+        .instruction-box {
+            background: #fff3cd;
+            border: 2px dashed #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: left;
+        }
+        
+        .instruction-box h3 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .instruction-box p {
+            color: #856404;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        
+        .instruction-box code {
+            background: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #d63384;
+            font-family: monospace;
+        }
+        
+        .recipient-name {
+            margin-top: 25px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .content-section {
+            padding: 40px;
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+        }
+        
+        .greeting-text {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            line-height: 2;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .greeting-text p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .greeting-text p:first-child {
+            font-weight: 600;
+            color: #f5576c;
+            font-size: 18px;
+        }
+        
+        .highlight {
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .wishes-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #f5576c;
+        }
+        
+        .signature-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed #ddd;
+            text-align: right;
+        }
+        
+        .signature-section p {
+            margin: 5px 0;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 14px;
+        }
+        
+        .decorative-element {
+            text-align: center;
+            font-size: 30px;
+            margin: 10px 0;
+        }
+        
+        .ornament {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .ornament::before,
+        .ornament::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f5576c, transparent);
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .card-container {
+                box-shadow: none;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .card-header h1 {
+                font-size: 22px;
+            }
+            
+            .content-section {
+                padding: 20px;
+            }
+            
+            .greeting-text {
+                padding: 20px;
+                font-size: 14px;
+            }
+            
+            .recipient-name {
+                font-size: 20px;
+            }
+            
+            .photo-placeholder {
+                width: 100%;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card-header">
+            <h1>சஷ்டியப்த பூர்த்தி விழா வாழ்த்து மடல்</h1>
+            <div class="subtitle">Shashtiabdapoorthi Celebration</div>
+        </div>
+        
+        <div class="photo-section">
+            <div class="photo-placeholder">
+                <img src="Thiru.Subramaniyam.jpeg" alt="Shashtiabdapoorthi Photo" style="width:100%; height:100%; border-radius:15px; object-fit:cover;">
+                </div>
+            </div>
+            
+            <div class="recipient-name">
+                திரு / திருமதி. சுப்பிரமணியம்
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <div class="greeting-text">
+                <p>திரு. / திருமதி. சுப்பிரமணியம் அவர்களுக்கு, வணக்கம்.</p>
+                
+                <div class="ornament">
+                    <span>✦</span>
+                </div>
+                
+                <p>அற்புதமான வாழ்க்கைப் பயணத்தின் ஒரு பொற்கால அடையாளமான <span class="highlight">சஷ்டியப்த பூர்த்தி (60வது பிறந்தநாள்)</span> இன்று (19/10/2025) நிகழ்வதை மனமார்ந்த மகிழ்ச்சியுடன் அறிகிறோம்.</p>
+                
+                <p>ஆயுள், ஆரோக்கியம், ஆனந்தம் நிறைந்த உங்கள் வாழ்க்கை பயணம் என்றும் நலமுடன் தொடரட்டும்.</p>
+                
+                <div class="wishes-box">
+                    <p style="margin: 0;"><strong>இந்நாளில், தாங்கள் இருவரும் —</strong></p>
+                    <p style="margin: 10px 0 0 0;">நீண்ட ஆயுள், நலமுடனும் நற்பேறுடனும் நிறைந்த ஆரோக்கியம், அமைதி, ஐஸ்வர்யம் நிரம்பிய வாழ்வு அருள்புரிய எல்லாம் வல்ல இறைவனை பிரார்த்திக்கிறோம்.</p>
+                </div>
+                
+                <div class="decorative-element">🙏</div>
+                
+                <p style="text-align: center; font-size: 20px; font-weight: 700; color: #f5576c; margin: 20px 0;">
+                    வாழ்த்த வயதில்லை வணங்குகிறோம்.<br>
+                    இனிய சஷ்டியப்த பூர்த்தி நல்வாழ்த்துக்கள்!
+                </p>
+                
+                <div class="ornament">
+                    <span>✦</span>
+                </div>
+                
+                <div class="signature-section">
+                    <p>அன்புடன்,</p>
+                    <p>கா.கண்ணன்</p>
+                    <p>கோபிசெட்டிபாளையம்</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>🎊 மகிழ்ச்சியான சஷ்டியப்த பூர்த்தி விழா 🎊</p>
+        </div>
+    </div>
+</body>
+</html>
