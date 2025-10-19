@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>சஷ்டியப்த பூர்த்தி வாழ்த்து மடல்</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&display=swap');
         
@@ -21,6 +22,7 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            line-height: 1.6;
         }
         
         .card-container {
@@ -30,56 +32,74 @@
             max-width: 800px;
             width: 100%;
             overflow: hidden;
+            position: relative;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            font-size: 24px;
+            color: rgba(255,255,255,0.8);
+            z-index: 10;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-icon:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .floating-icon:nth-child(2) { top: 15%; right: 7%; animation-delay: 1s; }
+        .floating-icon:nth-child(3) { bottom: 20%; left: 8%; animation-delay: 2s; }
+        .floating-icon:nth-child(4) { bottom: 15%; right: 5%; animation-delay: 3s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
         
         .card-header {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            padding: 30px;
+            padding: 30px 20px;
             text-align: center;
             position: relative;
+            overflow: hidden;
         }
         
         .card-header::before {
-            content: '🎉';
+            content: '';
             position: absolute;
-            top: 10px;
-            left: 20px;
-            font-size: 30px;
-            animation: bounce 2s infinite;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: rotate 20s linear infinite;
         }
         
-        .card-header::after {
-            content: '🎊';
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 30px;
-            animation: bounce 2s infinite 0.5s;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         .card-header h1 {
             color: white;
-            font-size: 28px;
+            font-size: clamp(22px, 5vw, 32px);
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
             margin-bottom: 5px;
+            position: relative;
+            z-index: 2;
         }
         
         .card-header .subtitle {
             color: rgba(255,255,255,0.95);
-            font-size: 16px;
+            font-size: clamp(14px, 3vw, 18px);
             font-weight: 400;
+            position: relative;
+            z-index: 2;
         }
         
         .photo-section {
             background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            padding: 40px;
+            padding: 30px 20px;
             text-align: center;
+            position: relative;
         }
         
         .photo-frame {
@@ -89,6 +109,7 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             position: relative;
+            max-width: 90%;
         }
         
         .photo-frame::before {
@@ -106,64 +127,35 @@
         }
         
         .photo-frame img {
-            max-width: 500px;
-            width: 100%;
+            max-width: 100%;
             height: auto;
             border-radius: 10px;
             display: block;
         }
         
-        .instruction-box {
-            background: #fff3cd;
-            border: 2px dashed #ffc107;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 600px;
-            text-align: left;
-        }
-        
-        .instruction-box h3 {
-            color: #856404;
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-        
-        .instruction-box p {
-            color: #856404;
-            margin: 5px 0;
-            font-size: 14px;
-        }
-        
-        .instruction-box code {
-            background: #f8f9fa;
-            padding: 2px 6px;
-            border-radius: 3px;
-            color: #d63384;
-            font-family: monospace;
-        }
-        
         .recipient-name {
             margin-top: 25px;
-            font-size: 24px;
+            font-size: clamp(20px, 5vw, 28px);
             font-weight: 700;
             color: #333;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            position: relative;
         }
         
         .content-section {
-            padding: 40px;
+            padding: 30px 20px;
             background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
         }
         
         .greeting-text {
             background: white;
-            padding: 30px;
+            padding: 25px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            line-height: 2;
-            font-size: 16px;
+            line-height: 1.8;
+            font-size: clamp(14px, 4vw, 16px);
             color: #333;
+            position: relative;
         }
         
         .greeting-text p {
@@ -174,7 +166,7 @@
         .greeting-text p:first-child {
             font-weight: 600;
             color: #f5576c;
-            font-size: 18px;
+            font-size: clamp(16px, 4vw, 18px);
         }
         
         .highlight {
@@ -188,6 +180,17 @@
             border-radius: 10px;
             margin: 20px 0;
             border-left: 5px solid #f5576c;
+            position: relative;
+        }
+        
+        .wishes-box::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-size: 40px;
+            color: #f5576c;
+            font-family: serif;
         }
         
         .signature-section {
@@ -208,13 +211,20 @@
             padding: 20px;
             text-align: center;
             color: white;
-            font-size: 14px;
+            font-size: clamp(12px, 3vw, 14px);
+            position: relative;
         }
         
         .decorative-element {
             text-align: center;
-            font-size: 30px;
+            font-size: clamp(24px, 6vw, 36px);
             margin: 10px 0;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
         
         .ornament {
@@ -233,6 +243,60 @@
             background: linear-gradient(90deg, transparent, #f5576c, transparent);
         }
         
+        .mobile-actions {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            background: rgba(255,255,255,0.9);
+            border-top: 1px solid #eee;
+        }
+        
+        .action-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            color: #667eea;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+        
+        .action-btn:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .action-btn i {
+            font-size: 20px;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f5576c;
+            opacity: 0.7;
+            border-radius: 50%;
+            animation: confetti-fall 5s linear forwards;
+            z-index: 100;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
         @media print {
             body {
                 background: white;
@@ -241,44 +305,52 @@
             .card-container {
                 box-shadow: none;
             }
+            
+            .mobile-actions {
+                display: none;
+            }
         }
         
-        @media (max-width: 600px) {
-            .card-header h1 {
-                font-size: 22px;
+        @media (max-width: 480px) {
+            .card-header {
+                padding: 20px 15px;
             }
             
             .content-section {
-                padding: 20px;
+                padding: 20px 15px;
             }
             
             .greeting-text {
                 padding: 20px;
-                font-size: 14px;
             }
             
-            .recipient-name {
-                font-size: 20px;
+            .photo-section {
+                padding: 20px 15px;
             }
             
-            .photo-placeholder {
-                width: 100%;
-                height: 300px;
+            .mobile-actions {
+                flex-wrap: wrap;
+                gap: 10px;
             }
         }
     </style>
 </head>
 <body>
     <div class="card-container">
+        <!-- Floating decorative elements -->
+        <div class="floating-icon">🌸</div>
+        <div class="floating-icon">🌟</div>
+        <div class="floating-icon">🎊</div>
+        <div class="floating-icon">🎉</div>
+        
         <div class="card-header">
             <h1>சஷ்டியப்த பூர்த்தி விழா வாழ்த்து மடல்</h1>
             <div class="subtitle">Shashtiabdapoorthi Celebration</div>
         </div>
         
         <div class="photo-section">
-            <div class="photo-placeholder">
-                <img src="Thiru.Subramaniyam.jpeg" alt="Shashtiabdapoorthi Photo" style="width:100%; height:100%; border-radius:15px; object-fit:cover;">
-                </div>
+            <div class="photo-frame">
+                <img src="Thiru.Subramaniyam.jpeg" alt="Shashtiabdapoorthi Photo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNGNEY2RjgiLz48cGF0aCBkPSJNMjUwIDE1MEMyNjUuMjI5IDE1MCAyNzcuNSAxMzcuNzI5IDI3Ny41IDEyMi41QzI3Ny41IDEwNy4yNzEgMjY1LjIyOSA5NSAyNTAgOTVDMjM0Ljc3MSA5NSAyMjIuNSAxMDcuMjcxIDIyMi41IDEyMi41QzIyMi41IDEzNy43MjkgMjM0Ljc3MSAxNTAgMjUwIDE1MFoiIGZpbGw9IiNEOEQ5REIiLz48cGF0aCBkPSJNMjE1IDE4MEgyODVWMjYwSDIxNVYxODBaIiBmaWxsPSIjRDhEOURCIi8+PHRleHQgeD0iMjUwIiB5PSIxODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iIzk5OTk5OSI+U2hhc2h0aWFiZGFwb29ydGhpIFBob3RvPC90ZXh0Pjwvc3ZnPg=='">
             </div>
             
             <div class="recipient-name">
@@ -305,7 +377,7 @@
                 
                 <div class="decorative-element">🙏</div>
                 
-                <p style="text-align: center; font-size: 20px; font-weight: 700; color: #f5576c; margin: 20px 0;">
+                <p style="text-align: center; font-size: clamp(18px, 4vw, 22px); font-weight: 700; color: #f5576c; margin: 20px 0;">
                     வாழ்த்த வயதில்லை வணங்குகிறோம்.<br>
                     இனிய சஷ்டியப்த பூர்த்தி நல்வாழ்த்துக்கள்!
                 </p>
@@ -322,9 +394,98 @@
             </div>
         </div>
         
+        <div class="mobile-actions">
+            <button class="action-btn" id="shareBtn">
+                <i class="fas fa-share-alt"></i>
+                <span>பகிர்</span>
+            </button>
+            <button class="action-btn" id="saveBtn">
+                <i class="fas fa-download"></i>
+                <span>சேமி</span>
+            </button>
+            <button class="action-btn" id="confettiBtn">
+                <i class="fas fa-birthday-cake"></i>
+                <span>வாழ்த்து</span>
+            </button>
+            <button class="action-btn" id="printBtn">
+                <i class="fas fa-print"></i>
+                <span>அச்சிடு</span>
+            </button>
+        </div>
+        
         <div class="footer">
             <p>🎊 மகிழ்ச்சியான சஷ்டியப்த பூர்த்தி விழா 🎊</p>
         </div>
     </div>
+
+    <script>
+        // Mobile-specific enhancements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Share functionality
+            document.getElementById('shareBtn').addEventListener('click', function() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'சஷ்டியப்த பூர்த்தி வாழ்த்து மடல்',
+                        text: 'இனிய சஷ்டியப்த பூர்த்தி நல்வாழ்த்துக்கள்!',
+                        url: window.location.href
+                    })
+                    .then(() => console.log('Successful share'))
+                    .catch((error) => console.log('Error sharing:', error));
+                } else {
+                    alert('உங்கள் browser பகிர்வு வசதியை ஆதரிக்கவில்லை. இந்த பக்கத்தின் URL ஐ காப்பி செய்யவும்.');
+                }
+            });
+            
+            // Save functionality
+            document.getElementById('saveBtn').addEventListener('click', function() {
+                alert('இந்த வாழ்த்து அட்டையை சேமிக்க, உங்கள் browser இன் "Print as PDF" விருப்பத்தை பயன்படுத்தவும்.');
+            });
+            
+            // Confetti effect
+            document.getElementById('confettiBtn').addEventListener('click', function() {
+                createConfetti();
+            });
+            
+            // Print functionality
+            document.getElementById('printBtn').addEventListener('click', function() {
+                window.print();
+            });
+            
+            // Create confetti effect
+            function createConfetti() {
+                const colors = ['#f5576c', '#667eea', '#ffd89b', '#f093fb', '#764ba2'];
+                const confettiCount = 100;
+                
+                for (let i = 0; i < confettiCount; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                    confetti.style.height = confetti.style.width;
+                    confetti.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                    confetti.style.animationDelay = (Math.random() * 2) + 's';
+                    
+                    document.body.appendChild(confetti);
+                    
+                    // Remove confetti after animation completes
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 5000);
+                }
+            }
+            
+            // Touch-friendly improvements
+            document.querySelectorAll('.action-btn').forEach(button => {
+                button.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.95)';
+                });
+                
+                button.addEventListener('touchend', function() {
+                    this.style.transform = '';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
